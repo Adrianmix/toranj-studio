@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #F3EFE8;
+  --bg-secondary: #E5DDD1;
+  --accent-warm: #A18B70;
+  --text-primary: #252522;
+  --text-secondary: #655F56;
+  --text-muted-light: #B8B0A4;
+  --bg-dark: #252522;
+  --border-hairline: #D8D0C5;
+  --border-dark: #3B3A35;
+
+  --font-persian: 'Estedad', 'Peyda', 'Dana', 'Vazirmatn', system-ui, -apple-system, sans-serif;
+  --font-editorial-serif: 'Cormorant Garamond', Georgia, serif;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-persian);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.75;
+}
+
+.font-editorial {
+  font-family: var(--font-editorial-serif);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle editorial scroll reveal (compositor-only) */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms var(--ease-editorial),
+    transform 650ms var(--ease-editorial);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 3px;
+}
+
+/* Subtle custom selection */
+::selection {
+  background-color: var(--bg-dark);
+  color: var(--bg-primary);
+}

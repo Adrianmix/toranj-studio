@@ -1,0 +1,6 @@
+{
+  "name": "استودیو ترنج | Toranj Studio",
+  "description": "ترنج، استودیوی خلاق طراحی لوگو، هویت بصری، ست اداری و بسته‌بندی برندها",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
